@@ -2,10 +2,10 @@ package com.example.geoguesswipe;
 
 public class StreetImage {
     private String country;
-    private String image;
+    private int image;
     private boolean isInEurope;
 
-    public StreetImage(String country, String image, boolean isInEurope) {
+    public StreetImage(String country, int image, boolean isInEurope) {
         this.country = country;
         this.image = image;
         this.isInEurope = isInEurope;
@@ -19,11 +19,11 @@ public class StreetImage {
         this.country = country;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
