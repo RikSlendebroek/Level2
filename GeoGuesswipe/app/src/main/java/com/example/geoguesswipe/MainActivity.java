@@ -20,18 +20,30 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     private RecyclerView mRecyclerView;
     private GestureDetector mGestureDetector;
 
+    private static final String FAIL_MESSAGE = "Oops, that seems to be wrong";
+    private static final String SUCCES_MESSAGE = "Correct!!";
+
+    private static final String DENMARK = "Denmark";
+    private static final String CANADA = "Canada";
+    private static final String BANGLADESH = "Bangladesh";
+    private static final String KAZCHSTAN = "Kazachstan";
+    private static final String COLUMBIA = "Columbia";
+    private static final String POLAND = "Poland";
+    private static final String MALTA = "Malta";
+    private static final String THAILAND = "Thailand";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        StreetImage streetImage1 = new StreetImage("Denmark", R.drawable.img1_yes_denmark, true);
-        StreetImage streetImage2 = new StreetImage("Canada", R.drawable.img2_no_canada, false);
-        StreetImage streetImage3 = new StreetImage("Bangladesh", R.drawable.img3_no_bangladesh, false);
-        StreetImage streetImage4 = new StreetImage("Kazachstan", R.drawable.img4_yes_kazachstan, true);
-        StreetImage streetImage5 = new StreetImage("Columbia", R.drawable.img5_no_colombia, false);
-        StreetImage streetImage6 = new StreetImage("Poland", R.drawable.img6_yes_poland, true);
-        StreetImage streetImage7 = new StreetImage("Malta", R.drawable.img7_yes_malta, true);
-        StreetImage streetImage8 = new StreetImage("Thailand", R.drawable.img8_no_thailand, false);
+        StreetImage streetImage1 = new StreetImage(DENMARK, R.drawable.img1_yes_denmark, true);
+        StreetImage streetImage2 = new StreetImage(CANADA, R.drawable.img2_no_canada, false);
+        StreetImage streetImage3 = new StreetImage(BANGLADESH, R.drawable.img3_no_bangladesh, false);
+        StreetImage streetImage4 = new StreetImage(KAZCHSTAN, R.drawable.img4_yes_kazachstan, true);
+        StreetImage streetImage5 = new StreetImage(COLUMBIA, R.drawable.img5_no_colombia, false);
+        StreetImage streetImage6 = new StreetImage(POLAND, R.drawable.img6_yes_poland, true);
+        StreetImage streetImage7 = new StreetImage(MALTA, R.drawable.img7_yes_malta, true);
+        StreetImage streetImage8 = new StreetImage(THAILAND, R.drawable.img8_no_thailand, false);
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mStreetImages = new ArrayList<>();
@@ -75,10 +87,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
                         StreetImage current = mStreetImages.get(position);
 
                         if(swipeDir == ItemTouchHelper.LEFT && !current.isInEurope() || swipeDir == ItemTouchHelper.RIGHT && current.isInEurope()) {
-                            Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, SUCCES_MESSAGE, Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(MainActivity.this, "Whoops, that seems to be wrong!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, FAIL_MESSAGE, Toast.LENGTH_SHORT).show();
                         }
 
                         mStreetImages.remove(position);
